@@ -6,9 +6,9 @@
     portal (WiFiManager). Pick your network there; it's remembered.
   - Page lives at http://sunrise.local (mDNS). The IP is shown on the page too.
   - Time from NTP, US Central with DST.
-  - OTA updates via PlatformIO env d1_mini_ota, or in a browser at
+  - OTA updates via PlatformIO env NodeMCUV2_ota, or in a browser at
     http://sunrise.local/update (user "admin", password OTA_PASSWORD).
-    Upload .pio/build/d1_mini/firmware.bin there.
+    Upload .pio/build/nodemcuv2/firmware.bin there.
 
   LED data: GPIO2 (D4). The UART1 method hardware-shifts the bits, so WiFi
   interrupts can't corrupt the timing and the radio never gets blocked.
@@ -31,14 +31,14 @@
 #define SETUP_AP_NAME  "Sunrise-Setup"
 #define OTA_PASSWORD   "changeme"                // match upload_flags in platformio.ini; also the /update page password
 #define UPDATE_USER    "admin"                   // /update page user name
-#define TZ_STRING      "CST6CDT,M3.2.0,M11.1.0"  // US Central, DST 2nd Sun Mar to 1st Sun Nov
+#define TZ_STRING      "CST6CDT,M3.2.0,M11.1.0"  // US Central, DST 2nd Sun Mar to 1st Sun Nov. Change if not in US Central
 #define NTP_1          "pool.ntp.org"
 #define NTP_2          "time.nist.gov"
 
 const uint16_t NUM_LEDS = 144;
 const uint32_t FRAME_MS = 33;                     // ~30 fps; plenty for slow fades
 
-// This strip takes RGB byte order. If red and green come out swapped, go back to NeoGrbFeature.
+// This strip takes RGB byte order. If red and green come out swapped, change to NeoGrbFeature.
 // Ws2812x timing has the 300 us reset the WS2815 needs.
 NeoPixelBus<NeoRgbFeature, NeoEsp8266Uart1Ws2812xMethod> strip(NUM_LEDS);
 ESP8266WebServer server(80);
