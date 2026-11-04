@@ -1,6 +1,6 @@
 # SUNRISE_CTRL
-A customizable sunrise and sunset using WS2815 addressable light strip.
-Retro greentext style gui for setting sunrise and sunset parameters.
+A customizable sunrise and sunset using addressable led light strip.
+Retro green screen style gui for setting sunrise and sunset parameters.
 
 Will work with a variety of light strips as supported by NeoPixel:
   - When using WS2812 or other 5v strip, ensure separate power feed to
