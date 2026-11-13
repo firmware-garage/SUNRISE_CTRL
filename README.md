@@ -1,3 +1,6 @@
+Superseded by SUNRISE_CTRL_V2
+(boot fix, OTA-protected wifi reset and UI improvement)
+
 # SUNRISE_CTRL
 
 A customizable sunrise and sunset using an addressable LED light strip, with a retro green-screen web GUI for setting the sunrise and sunset parameters.
